@@ -71,6 +71,43 @@ extension ViewController {
             return
         }
         moveAnimation(to: point)
+        
+        let dx = point.x - home.x
+        let dy = point.y - home.y
+        var angle = atan(dy / dx) * 180.0 / CGFloat.pi // angle in degrees
+        
+        let direction = (dx > 0 ? true : false, dy > 0 ? true : false, angle > 0 ? true : false)
+        
+        switch direction {
+        case (true, false, false): // first quadrant
+            if abs(angle) > 45 {
+                print("UP")
+            } else {
+                print("RIGHT")
+            }
+        case (false, false, true): // second quadrant
+            if abs(angle) > 45 {
+                print("UP")
+            } else {
+                print("LEFT")
+            }
+        case (false, true, false): // third quadrant
+            if abs(angle) > 45 {
+                print("DOWN")
+            } else {
+                print("LEFT")
+            }
+        case (true, true, true): // fourth quadrant
+            if abs(angle) > 45 {
+                print("DOWN")
+            } else {
+                print("RIGHT")
+            }
+        default:
+            break
+        }
+        
+        print("dx: \(dx), dy: \(dy), angle: \(angle)")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -78,7 +115,12 @@ extension ViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first { touchDown(at: touch.location(in: self.view)) }
+        if let touch = touches.first {
+            let location = touch.location(in: self.view)
+            guard distance(p1: home, p2: location) < 100 else { return }
+            
+            touchDown(at: location)
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
