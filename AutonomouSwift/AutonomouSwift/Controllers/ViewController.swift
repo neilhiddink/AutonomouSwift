@@ -49,16 +49,36 @@ class ViewController: UIViewController {
         }
     }
     
+    func resetScaling() {
+        upArrow.scaleDownAnimation()
+        downArrow.scaleDownAnimation()
+        rightArrow.scaleDownAnimation()
+        leftArrow.scaleDownAnimation()
+    }
+    
 }
 
-// https://stackoverflow.com/questions/3844557/uiview-shake-animation
 extension UIView {
+    
+    // https://stackoverflow.com/questions/3844557/uiview-shake-animation
     func shakeAnimation() {
         self.transform = CGAffineTransform(translationX: 15, y: 0)
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             self.transform = CGAffineTransform.identity
         }, completion: nil)
     }
+    func scaleUpAnimation() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        })
+    }
+    
+    func scaleDownAnimation() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+    }
+
 }
 
 // MARK: - Touch Methods
@@ -66,7 +86,7 @@ extension UIView {
 extension ViewController {
     
     func touchDown(at point: CGPoint) {
-        guard self.distance(p1: self.joystick.center, p2: point) < 100 else {
+        guard self.distance(p1: self.joystick.center, p2: point) < 150 else {
             joystick.shakeAnimation()
             return
         }
@@ -74,40 +94,42 @@ extension ViewController {
         
         let dx = point.x - home.x
         let dy = point.y - home.y
-        var angle = atan(dy / dx) * 180.0 / CGFloat.pi // angle in degrees
+        let angle = atan(dy / dx) * 180.0 / CGFloat.pi // angle in degrees
         
         let direction = (dx > 0 ? true : false, dy > 0 ? true : false, angle > 0 ? true : false)
+        
+        resetScaling()
         
         switch direction {
         case (true, false, false): // first quadrant
             if abs(angle) > 45 {
-                print("UP")
+                upArrow.scaleUpAnimation()
             } else {
-                print("RIGHT")
+                rightArrow.scaleUpAnimation()
             }
         case (false, false, true): // second quadrant
             if abs(angle) > 45 {
-                print("UP")
+                upArrow.scaleUpAnimation()
             } else {
-                print("LEFT")
+                leftArrow.scaleUpAnimation()
             }
         case (false, true, false): // third quadrant
             if abs(angle) > 45 {
-                print("DOWN")
+                downArrow.scaleUpAnimation()
             } else {
-                print("LEFT")
+                leftArrow.scaleUpAnimation()
             }
         case (true, true, true): // fourth quadrant
             if abs(angle) > 45 {
-                print("DOWN")
+                downArrow.scaleUpAnimation()
             } else {
-                print("RIGHT")
+                rightArrow.scaleUpAnimation()
             }
         default:
             break
         }
         
-        print("dx: \(dx), dy: \(dy), angle: \(angle)")
+//        print("dx: \(dx), dy: \(dy), angle: \(angle)") // useful for debugging
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -125,6 +147,7 @@ extension ViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         joystick.center = home
+        resetScaling()
     }
     
 }
