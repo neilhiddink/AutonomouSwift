@@ -1,9 +1,9 @@
 # AutonomouSwift
-A self-driving car library written in Swift
+A self-driving car written in Swift
 
 ### 🚘 Getting Started
 
-To use this library, you will need:
+To get started, you will need:
 
 - A laptop running the latest version of Mac OS X.
 - A Raspberry Pi 3
