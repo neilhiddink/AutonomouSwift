@@ -13,4 +13,13 @@ To get started, you will need:
 
 ### 🔌 Configuring the Raspberry Pi
 
-#### Step 1️⃣: [Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
+#### Step 1️⃣: Set up the car's vision system - 
+
+[Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
+
+Download OBS (Open Broadcast Software) at https://obsproject.com
+
+Set up camera on iOS app with AVKit and AVCaptureSession
+[CoreML: Real Time Camera Object Detection with Machine Learning - Swift 4](https://www.youtube.com/watch?v=p6GA8ODlnX0)
+
+❗️**Note: README is currently a work in progress**
