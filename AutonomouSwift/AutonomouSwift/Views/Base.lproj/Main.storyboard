@@ -53,9 +53,8 @@
                                     <constraint firstAttribute="width" constant="100" id="Uvj-xc-1h2"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9t-f3-ajv" customClass="CustomCameraView" customModule="AutonomouSwift" customModuleProvider="target">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="I9t-f3-ajv" customClass="CustomCameraView" customModule="AutonomouSwift" customModuleProvider="target">
                                 <rect key="frame" x="378" y="48" width="960" height="948"/>
-                                <color key="backgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RIGHT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kz-hc-yf5">
                                 <rect key="frame" x="78" y="220" width="200" height="42"/>
