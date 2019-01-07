@@ -16,10 +16,13 @@ class ViewController: UIViewController {
     
     // MARK: IB Outlets
     
+    @IBOutlet var directionLabel: UILabel!
+    
     @IBOutlet var upArrow: UIImageView!
     @IBOutlet var downArrow: UIImageView!
     @IBOutlet var rightArrow: UIImageView!
     @IBOutlet var leftArrow: UIImageView!
+    
     @IBOutlet var joystick: UIImageView!
     
     // MARK: View Life Cycle
@@ -34,6 +37,7 @@ class ViewController: UIViewController {
         leftArrow.center = CGPoint(x: 68, y: view.frame.height - 168)
         rightArrow.center = CGPoint(x: 268, y: view.frame.height - 168)
         joystick.center = home
+        directionLabel.text = ""
     }
     
     // MARK: - Helper Methods
@@ -104,26 +108,34 @@ extension ViewController {
         case (true, false, false): // first quadrant
             if abs(angle) > 45 {
                 upArrow.scaleUpAnimation()
+                directionLabel.text = "UP"
             } else {
                 rightArrow.scaleUpAnimation()
+                directionLabel.text = "RIGHT"
             }
         case (false, false, true): // second quadrant
             if abs(angle) > 45 {
                 upArrow.scaleUpAnimation()
+                directionLabel.text = "UP"
             } else {
                 leftArrow.scaleUpAnimation()
+                directionLabel.text = "LEFT"
             }
         case (false, true, false): // third quadrant
             if abs(angle) > 45 {
                 downArrow.scaleUpAnimation()
+                directionLabel.text = "DOWN"
             } else {
                 leftArrow.scaleUpAnimation()
+                directionLabel.text = "LEFT"
             }
         case (true, true, true): // fourth quadrant
             if abs(angle) > 45 {
                 downArrow.scaleUpAnimation()
+                directionLabel.text = "DOWN"
             } else {
                 rightArrow.scaleUpAnimation()
+                directionLabel.text = "RIGHT"
             }
         default:
             break
@@ -148,6 +160,7 @@ extension ViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         joystick.center = home
         resetScaling()
+        directionLabel.text = ""
     }
     
 }
