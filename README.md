@@ -1,5 +1,5 @@
 # AutonomouSwift
-A self-driving car written in Swift
+A self-driving RC car written in Swift
 
 ### 🚘 Getting Started
 
@@ -13,5 +13,4 @@ To get started, you will need:
 
 ### 🔌 Configuring the Raspberry Pi
 
-_Coming Soon_
-
+#### Step 1️⃣: [Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
