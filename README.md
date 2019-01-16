@@ -43,6 +43,8 @@ These instructions will help you set up your Raspberry Pi's wifi and configure t
 
 [Mac: How to Stream & Record using OBS on a Mac (Open Broadcaster Software) (Easy)](https://www.youtube.com/watch?v=pAdvuOI6UfU&t=331s)
 
+[Etcher](https://www.balena.io/etcher/)
+
 [Raspberry Pi VNC Screen Sharing on a Mac](https://www.youtube.com/watch?v=2iVK8dn-6x4)
 
 _Coming Soon_
