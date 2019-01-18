@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
-// MARK: ViewController: UIViewController
+
+// MARK: ViewController: UIViewController
 
 class ViewController: UIViewController {
     
-    var home = CGPoint.zero
+    var home = CGPoint.zero
     
     // MARK: IB Outlets
     
