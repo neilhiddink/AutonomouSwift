@@ -69,7 +69,7 @@ This guide assumes you have already installed your Raspberry Pi in its case and 
 
 7. Using your USB-C Hub and an ethernet cable, Connect your Raspberry Pi to your Macbook Pro.
 
-8.
+8. On your Macbook Pro, open Terminal and run ping **raspberrypi.local** to get the IP Address of your pi.
 
 9. 
 
