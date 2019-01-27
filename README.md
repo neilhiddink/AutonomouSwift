@@ -1,9 +1,10 @@
-# AutonomouSwift
-A self-driving RC car written in Swift
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/banner.png" width="500"></p>
+
+<p align="center"><b>A self-driving RC car written in Swift</b><p align="center">
 
 ## Contributing
 
-In the future, please refer to CONTRIBUTING.md for information and guidelines about contributing to this project. Until that file has been populated, feel free to fork the repository and submit a pull request. Thanks!
+In the future, please refer to CONTRIBUTING.md for information and guidelines about contributing to this project. Until that file is complete, feel free to simply fork the repository and submit a pull request. Thanks!
 
 _❗️**Note**: This README is currently a work in progress._
 
@@ -35,27 +36,33 @@ To follow along with this project yourself, there are several hardware and softw
 | [Xcode 10](https://developer.apple.com/xcode/) | FREE | Required to build iOS apps |
 | [Apple Developer Program Membership](https://developer.apple.com/programs/how-it-works/) | $99/year | Required to run iOS apps on an actual device |
 
-[Introduction to the Mac OS X Command Line](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
-
-[https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0](https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0)
-
-[How to setup Raspberry Pi 3 Headless with Mac](https://medium.com/@anoopm6/how-to-setup-raspberry-pi-3-headless-with-mac-345a9e63d01b)
-
 ## 🚘 Getting Started
 
-<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/pi-1.jpeg" width="250"></p>
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/getting-started-1.png" width="250"></p>
 
 This guide assumes you have already installed your Raspberry Pi in its case and have all of the required hardware and software. If you need more information about setup, a good resource is the official post [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2) on raspberrypi.org.
 
 #### Setting up the SD Card
 
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/getting-started-2.png" width="250"></p>
+
 1. Insert your MicroSD card into the MicroSD reader and then insert the reader into a USB to USB-C dongle so that you can plug it into your Macbook Pro.
 
-2. Open Etcher. Select the **Raspbian Stretch for Desktop** .img file you downloaded from raspberrypi.org and the remote drive for the SD card, then click **Flash**.
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/getting-started-3.png" width="350"></p>
 
-3. Open Finder and press eject to safely disconnect the SD card from your Macbook Pro. 
+2. The next step is similar to the instructions on [raspberrypi.org - Set up your SD card](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3), except we will install Raspbian instead of NOOBS. Navigate to the [Raspbian downloads](https://www.raspberrypi.org/downloads/raspbian/) page and download the image for **Raspbian Stretch with desktop**.
 
-4. Insert the SD Card into the Raspberry Pi SD card slot.
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/getting-started-4.png" width="250"></p>
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/getting-started-5.png" width="350"></p>
+
+3. Open Etcher. Select the **Raspbian Stretch for Desktop** .img file and the remote drive for your SD card, then click **Flash**.
+
+4. Open Finder and press eject to safely disconnect the SD card from your Macbook Pro. 
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/getting-started-6.png" width="250"></p>
+
+5. Insert the SD Card into the Raspberry Pi SD card slot.
 
 #### 🔌 Configuring your Raspberry Pi
 
@@ -105,14 +112,6 @@ _❗️**Note**: If at first you don't succeed; try, try again. Make sure your r
 
 #### 📹 Setup your Raspberry Pi's Vision System (Webcam Server)
 
-[Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
-
-[How to Setup OBS Studio for Local Recording and Streaming](https://www.youtube.com/watch?v=JHVdi8hhnLw)
-
-[Mac: How to Stream & Record using OBS on a Mac (Open Broadcaster Software) (Easy)](https://www.youtube.com/watch?v=pAdvuOI6UfU&t=331s)
-
-[Raspberry Pi VNC Screen Sharing on a Mac](https://www.youtube.com/watch?v=2iVK8dn-6x4)
-
 _Coming Soon_
 
 ## 💻 Code 
@@ -124,7 +123,16 @@ _Coming Soon_
 Set up camera on iOS app with AVKit and AVCaptureSession
 [CoreML: Real Time Camera Object Detection with Machine Learning - Swift 4](https://www.youtube.com/watch?v=p6GA8ODlnX0)
 
-
+## ⭐️ Credits
+- [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2)
+- [Set up your SD card](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)
+- [Introduction to the Mac OS X Command Line](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+- [https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0](https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0)
+- [How to setup Raspberry Pi 3 Headless with Mac](https://medium.com/@anoopm6/how-to-setup-raspberry-pi-3-headless-with-mac-345a9e63d01b)
+- [Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
+- [How to Setup OBS Studio for Local Recording and Streaming](https://www.youtube.com/watch?v=JHVdi8hhnLw)
+- [Mac: How to Stream & Record using OBS on a Mac (Open Broadcaster Software) (Easy)](https://www.youtube.com/watch?v=pAdvuOI6UfU&t=331s)
+- [Raspberry Pi VNC Screen Sharing on a Mac](https://www.youtube.com/watch?v=2iVK8dn-6x4)
 
 ## 🔮 Future Plans
 
