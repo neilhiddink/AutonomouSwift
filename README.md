@@ -5,7 +5,7 @@ A self-driving RC car written in Swift
 
 In the future, please refer to CONTRIBUTING.md for information and guidelines about contributing to this project. Until that file has been populated, feel free to fork the repository and submit a pull request. Thanks!
 
-❗️**Note: This README is currently a work in progress**
+_❗️**Note**: This README is currently a work in progress._
 
 ## 🛒 Shopping List 
 
@@ -45,7 +45,7 @@ To follow along with this project yourself, there are several hardware and softw
 
 <p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/pi-1.jpeg" width="250"></p>
 
-This guide assumes you have already installed your Raspberry Pi in its case and have all of the required hardware and software. If you need more information about basic setup of the Raspberry Pi, a good resource is the official post [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2) on raspberrypi.org.
+This guide assumes you have already installed your Raspberry Pi in its case and have all of the required hardware and software. If you need more information about setup, a good resource is the official post [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2) on raspberrypi.org.
 
 #### Setting up the SD Card
 
@@ -53,11 +53,13 @@ This guide assumes you have already installed your Raspberry Pi in its case and 
 
 2. Open Etcher. Select the **Raspbian Stretch for Desktop** .img file you downloaded from raspberrypi.org and the remote drive for the SD card, then click **Flash**.
 
-3. Open Finder press eject to safely disconnect the SD card from your Macbook Pro. 
+3. Open Finder and press eject to safely disconnect the SD card from your Macbook Pro. 
 
 4. Insert the SD Card into the Raspberry Pi SD card slot.
 
-#### 🔌 Configuring the Raspberry Pi
+#### 🔌 Configuring your Raspberry Pi
+
+_❗️**Note**: We are not using an external monitor and keyboard to set up the pi and access the raspbian desktop. Instead, we will setup a "headless" connection to the pi, then access the desktop from the Macbook Pro with a free application called VNC Viewer._
 
 5. Plug in your Raspberry Pi. You should see a red LED light up near the power input:
 
@@ -69,11 +71,39 @@ This guide assumes you have already installed your Raspberry Pi in its case and 
 
 7. Using your USB-C Hub and an ethernet cable, Connect your Raspberry Pi to your Macbook Pro.
 
-8. On your Macbook Pro, open Terminal and run ping **raspberrypi.local** to get the IP Address of your pi.
+8. On your Macbook Pro, open Terminal and execute the command:
+```
+  ping raspberrypi.local
+```
+This will start to display a series of ping messages every so often. Enter `Command + C` to end the ping, then write down the IP address in the message, i.e. the number following "...bytes from..." in the format 00.0.0.00.
 
-9. 
+_❗️**Note**: The IP Address you collected will change once we have accessed the desktop, because we will be setting up the raspberry pi's Wi-fi later._
 
-These instructions will help you set up your Raspberry Pi's wifi and configure the webcam server.
+9. Next, go back to terminal and connect to the pi via [SSH](https://en.wikipedia.org/wiki/Secure_Shell) with the command:
+```
+ssh pi@{YOUR_IP_ADDRESS}
+```
+_❗️**Note**: Replace {YOUR_IP_ADDRESS} with the IP Address you wrote down in step 8. If your connection is successful, you should see `pi@raspberrypi:~ $` in the prompt._
+
+10. The next step is to adjust the resolution of the pi's desktop display and enable Wi-fi. Run the command:
+```
+sudo raspi-config
+```
+11. A settings page will appear inside of your Terminal window. You need to adjust a couple of settings here:
+- A. Navigate to **Network Options >> N2 Wi-fi**, then enter the [SSID](https://en.wikipedia.org/wiki/Service_set_(802.11_network)#Service_set_identifier_(SSID)) of your home Wi-fi (this is the name you assigned to the network when you set up your modem).
+- B. Under **Boot Options**, select **Desktop / CLI** and the choose **B1 Console** option.
+- C. Under **Interfacing Options**, select **P3 VNC** and enable VNC server.
+- D. Under **Advanced Options**, select **A5 Resolution** and choose **DMT Mode 82 1920x1080 60Hz 16:9***.
+
+12. With those items addressed, you need to select **Finish** and restart your pi when prompted.
+
+_❗️**Note**: Optionally, you could SSH into your pi then run `sudo apt-get update` from the Terminal to ensure you have the latest update installed. This will require you to restart the pi again before continuing.
+
+13. Ok, now that you have the settings configured, it's time to access your pi's desktop with VNC Viewer. Open Terminal one more time and run `ping raspberrypi.local` to get the Wi-fi enabled IP address. With that, open VNC Viewer and enter the number in the search bar.
+
+_❗️**Note**: If at first you don't succeed; try, try again. Make sure your raspberry pi is plugged in and the latest update to raspbian is installed. The time to complete this step will depend on your internet connection speed.
+
+#### 📹 Setup your Raspberry Pi's Vision System (Webcam Server)
 
 [Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
 
