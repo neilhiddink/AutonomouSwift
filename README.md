@@ -110,7 +110,7 @@ sudo raspi-config
 11. A settings page will appear inside of your Terminal window. You need to adjust a couple of settings here:
 - Select **Change User Password** to protect your pi. The majority of people who use raspberry pi skip this step, so it is important! Keeping the default password gives anyone with your IP address an opportunity to access your pi.
 - Navigate to **Network Options >> N2 Wi-fi**, then enter the [SSID](https://en.wikipedia.org/wiki/Service_set_(802.11_network)#Service_set_identifier_(SSID)) of your home Wi-fi (this is the name you assigned to the network when you set up your modem).
-- Under **Boot Options**, select **Desktop / CLI** and the choose **B1 Console** option.
+- Under **Boot Options**, select **Desktop / CLI** and the choose **B3 Desktop** option.
 - Under **Interfacing Options**, select **P3 VNC** and enable VNC server.
 - Under **Advanced Options**, select **A5 Resolution** and choose **DMT Mode 82 1920x1080 60Hz 16:9***.
 
@@ -126,7 +126,7 @@ _❗️**Note**: Optionally, you could SSH into your pi then run `sudo apt-get u
 
 _❗️**Note**: If at first you don't succeed; try, try again. Make sure your raspberry pi is plugged in and the latest update to raspbian is installed. The time to complete this step will depend on your internet connection speed._
 
-#### 📹 Setup your Raspberry Pi's Vision System (Webcam Server)
+#### Setup your Raspberry Pi's Vision System (Webcam Server)
 
 _Coming Soon_
 
@@ -145,10 +145,16 @@ Set up camera on iOS app with AVKit and AVCaptureSession
 - [Introduction to the Mac OS X Command Line](https://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
 - [https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0](https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0)
 - [How to setup Raspberry Pi 3 Headless with Mac](https://medium.com/@anoopm6/how-to-setup-raspberry-pi-3-headless-with-mac-345a9e63d01b)
+- [Raspberry Pi VNC Screen Sharing on a Mac](https://www.youtube.com/watch?v=2iVK8dn-6x4)
+- [VNC Cannot currently show the dekstop](https://www.raspberrypi.org/forums/viewtopic.php?t=216737)
 - [Build a Raspberry Pi Webcam Server](https://www.youtube.com/watch?v=WNKbZsrsKVs)
+- [ScienceBuddies How to Use a Breadboard](https://youtu.be/6WReFkfrUIk)
+- [Controlling DC Motors Using Python With a Raspberry Pi](https://business.tutsplus.com/tutorials/controlling-dc-motors-using-python-with-a-raspberry-pi--cms-20051)
 - [How to Setup OBS Studio for Local Recording and Streaming](https://www.youtube.com/watch?v=JHVdi8hhnLw)
 - [Mac: How to Stream & Record using OBS on a Mac (Open Broadcaster Software) (Easy)](https://www.youtube.com/watch?v=pAdvuOI6UfU&t=331s)
-- [Raspberry Pi VNC Screen Sharing on a Mac](https://www.youtube.com/watch?v=2iVK8dn-6x4)
+- [Ryan Zotti's self-driving-car](https://github.com/RyanZotti/Self-Driving-Car)
+- [DonkeyCar](https://github.com/autorope/donkeycar)
+- [How to easily Detect Objects with Deep Learning on Raspberry Pi](https://medium.com/nanonets/how-to-easily-detect-objects-with-deep-learning-on-raspberrypi-225f29635c74)
 
 ## 🔮 Future Plans
 
