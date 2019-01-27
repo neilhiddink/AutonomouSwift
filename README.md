@@ -64,17 +64,19 @@ This guide assumes you have already installed your Raspberry Pi in its case and 
 
 5. Insert the SD Card into the Raspberry Pi SD card slot.
 
-#### 🔌 Configuring your Raspberry Pi
+#### Configuring your Raspberry Pi
 
 _❗️**Note**: We are not using an external monitor and keyboard to set up the pi and access the raspbian desktop. Instead, we will setup a "headless" connection to the pi, then access the desktop from the Macbook Pro with a free application called VNC Viewer._
 
-5. Plug in your Raspberry Pi. You should see a red LED light up near the power input:
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-1.png" width="250"></p>
 
-<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/pi-2.jpeg" width="250"></p>
+5. Plug in your Raspberry Pi. You should see a red LED light up near the power input.
 
-6. After a few seconds, a green LED should light up next to the red LED:
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-2.png" width="250"></p>
 
-<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/pi-3.jpeg" width="250"></p>
+6. After a few seconds, a green LED should light up next to the red LED.
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-3.png" width="350"></p>
 
 7. Using your USB-C Hub and an ethernet cable, Connect your Raspberry Pi to your Macbook Pro.
 
@@ -84,31 +86,45 @@ _❗️**Note**: We are not using an external monitor and keyboard to set up the
 ```
 This will start to display a series of ping messages every so often. Enter `Command + C` to end the ping, then write down the IP address in the message, i.e. the number following "...bytes from..." in the format 00.0.0.00.
 
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-4.png" width="450"></p>
+
 _❗️**Note**: The IP Address you collected will change once we have accessed the desktop, because we will be setting up the raspberry pi's Wi-fi later._
 
 9. Next, go back to terminal and connect to the pi via [SSH](https://en.wikipedia.org/wiki/Secure_Shell) with the command:
 ```
 ssh pi@{YOUR_IP_ADDRESS}
 ```
+When prompted for a password, enter the default: **raspberry**.
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-5.png" width="450"></p>
+
 _❗️**Note**: Replace {YOUR_IP_ADDRESS} with the IP Address you wrote down in step 8. If your connection is successful, you should see `pi@raspberrypi:~ $` in the prompt._
 
-10. The next step is to adjust the resolution of the pi's desktop display and enable Wi-fi. Run the command:
+10. The next step is to adjust the some of the pi's default settings. Run the command:
 ```
 sudo raspi-config
 ```
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-6.png" width="450"></p>
+
 11. A settings page will appear inside of your Terminal window. You need to adjust a couple of settings here:
-- A. Navigate to **Network Options >> N2 Wi-fi**, then enter the [SSID](https://en.wikipedia.org/wiki/Service_set_(802.11_network)#Service_set_identifier_(SSID)) of your home Wi-fi (this is the name you assigned to the network when you set up your modem).
-- B. Under **Boot Options**, select **Desktop / CLI** and the choose **B1 Console** option.
-- C. Under **Interfacing Options**, select **P3 VNC** and enable VNC server.
-- D. Under **Advanced Options**, select **A5 Resolution** and choose **DMT Mode 82 1920x1080 60Hz 16:9***.
+- Select **Change User Password** to protect your pi. The majority of people who use raspberry pi skip this step, so it is important! Keeping the default password gives anyone with your IP address an opportunity to access your pi.
+- Navigate to **Network Options >> N2 Wi-fi**, then enter the [SSID](https://en.wikipedia.org/wiki/Service_set_(802.11_network)#Service_set_identifier_(SSID)) of your home Wi-fi (this is the name you assigned to the network when you set up your modem).
+- Under **Boot Options**, select **Desktop / CLI** and the choose **B1 Console** option.
+- Under **Interfacing Options**, select **P3 VNC** and enable VNC server.
+- Under **Advanced Options**, select **A5 Resolution** and choose **DMT Mode 82 1920x1080 60Hz 16:9***.
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-7.png" width="450"></p>
 
 12. With those items addressed, you need to select **Finish** and restart your pi when prompted.
 
-_❗️**Note**: Optionally, you could SSH into your pi then run `sudo apt-get update` from the Terminal to ensure you have the latest update installed. This will require you to restart the pi again before continuing.
+_❗️**Note**: Optionally, you could SSH into your pi then run `sudo apt-get update` from the Terminal to ensure you have the latest update installed. This will require you to restart the pi again before continuing._
+
+<p align="center"><img src="https://github.com/neilhiddink/AutonomouSwift/blob/master/Resources/configure-pi-8.png" width="450"></p>
 
 13. Ok, now that you have the settings configured, it's time to access your pi's desktop with VNC Viewer. Open Terminal one more time and run `ping raspberrypi.local` to get the Wi-fi enabled IP address. With that, open VNC Viewer and enter the number in the search bar.
 
-_❗️**Note**: If at first you don't succeed; try, try again. Make sure your raspberry pi is plugged in and the latest update to raspbian is installed. The time to complete this step will depend on your internet connection speed.
+_❗️**Note**: If at first you don't succeed; try, try again. Make sure your raspberry pi is plugged in and the latest update to raspbian is installed. The time to complete this step will depend on your internet connection speed._
 
 #### 📹 Setup your Raspberry Pi's Vision System (Webcam Server)
 
